@@ -1,11 +1,11 @@
-/* ↓ Reset básico: remove margens/padding padrão e ajusta box-sizing ↓ */
+/* Reset básico */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ↓ BODY: fonte, fundo escuro, cor clara e centralização do container ↓ */
+/* Corpo da página: centralização e tema escuro */
 body {
   font-family: sans-serif;
   background: #121212;
@@ -16,7 +16,7 @@ body {
   min-height: 100vh;
 }
 
-/* ↓ Container principal: fundo levemente mais claro, cantos arredondados ↓ */
+/* Container principal com cantos arredondados */
 .app-container {
   background: #1e1e1e;
   border-radius: 12px;
@@ -25,43 +25,42 @@ body {
   width: 100%;
 }
 
-/* ↓ Cabeçalho: engloba logo e título com fundo destacado ↓ */
-.app-header {
+/* Cabeçalho com logo, título e slogan */
+.cabecalho {
   display: flex;
   align-items: center;
   background: #232323;
   padding: 16px;
   border-bottom: 1px solid #333;
 }
-
-/* ↓ Logo: define tamanho e margem para separação do título ↓ */
 .logo {
-  width: 40px;
-  height: 40px;
+  width: 80px;     /* alterado conforme seu ajuste */
+  height: 80px;
   margin-right: 12px;
 }
-
-/* ↓ Título: cor verde para contraste e tamanho ajustado ↓ */
-.app-header h1 {
+.cabecalho h1 {
   color: #8bc34a;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
+}
+.slogan {
+  color: #8bc34a;
+  font-style: italic;
+  margin-left: 16px;
 }
 
-/* ↓ Layout principal: sidebar + área de tarefas lado a lado ↓ */
-.main-content {
+/* Layout com barra lateral e painel de notas */
+.conteudo-principal {
   display: flex;
 }
 
-/* ↓ Sidebar: largura fixa, fundo escuro e separação visual ↓ */
-.sidebar {
+/* Barra lateral: menu de navegação */
+.barra-lateral {
   width: 250px;
   background: #1b1b1b;
   border-right: 1px solid #333;
   padding: 16px;
 }
-
-/* ↓ Campo de busca na sidebar: fundo, borda e texto estilizados ↓ */
-.sidebar .search input {
+.barra-lateral .busca input {
   width: 100%;
   padding: 8px;
   background: #292929;
@@ -69,28 +68,22 @@ body {
   border-radius: 4px;
   color: #e0e0e0;
 }
-
-/* ↓ Menu de navegação: lista sem marcador e espaçamento acima ↓ */
-.sidebar .menu ul {
+.menu ul {
   list-style: none;
   margin-top: 16px;
 }
-
-/* ↓ Itens do menu: padding, alinhamento e cursor de clique ↓ */
-.sidebar .menu li {
+.menu li {
   padding: 10px;
   display: flex;
   justify-content: space-between;
   cursor: pointer;
 }
-
-/* ↓ Efeito hover no menu: fundo levemente mais claro ↓ */
-.sidebar .menu li:hover {
+.menu li:hover {
   background: #292929;
 }
 
-/* ↓ Sticky Wall: área de notas usando CSS Grid responsivo ↓ */
-.sticky-wall {
+/* Painel de notas com layout responsivo */
+.painel-notas {
   flex: 1;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -98,37 +91,21 @@ body {
   padding: 16px;
 }
 
-/* ↓ Sticky notes: padding, borda arredondada e cor do texto ↓ */
-.sticky {
+/* Cartões de nota com arredondamento */
+.nota {
   padding: 16px;
   border-radius: 8px;
   min-height: 120px;
   cursor: default;
   color: #333;
 }
+.nota.amarela { background: #fef08a; }
+.nota.azul    { background: #a5f3fc; }
+.nota.rosa    { background: #fbcfe8; }
+.nota.laranja { background: #fed7aa; }
 
-/* ↓ Nota amarela */
-.sticky.yellow {
-  background: #fef08a;
-}
-
-/* ↓ Nota azul */
-.sticky.blue {
-  background: #a5f3fc;
-}
-
-/* ↓ Nota rosa */
-.sticky.pink {
-  background: #fbcfe8;
-}
-
-/* ↓ Nota laranja */
-.sticky.orange {
-  background: #fed7aa;
-}
-
-/* ↓ Card “+”: para adicionar notas, centralizado com cor verde ↓ */
-.sticky.add {
+/* Cartão "+": para adicionar novas notas */
+.nota.adicionar {
   background: #292929;
   display: flex;
   justify-content: center;
@@ -136,13 +113,11 @@ body {
   font-size: 2rem;
   color: #8bc34a;
 }
-
-/* ↓ Efeito hover no card “+”: fundo levemente mais claro ↓ */
-.sticky.add:hover {
+.nota.adicionar:hover {
   background: #333;
 }
 
-/* ↓ Suporte a tema escuro via media query ↓ */
+/* Suporte a tema escuro via preferências do sistema */
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark light;
